@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 class Linkedlist{
@@ -63,6 +64,38 @@ public:
         newnode->next=tem;
 
     }
+    void DeleteAtBegining()
+    {
+      Node *t=head;
+      head=head->next;
+      delete t;
+    }
+    void DeleteAtEnd()
+    {
+       Node *tt =head;
+       while(tt->next->next!=NULL)
+       {
+        tt=tt->next;
+       }
+       delete (tt->next);
+       tt->next=NULL;
+
+       }
+   void DeleteAtmidd(int x)
+   {
+    x--;
+       Node *pet=head;
+       Node *pre;
+       while(x--)
+       {
+        pre=pet;
+        pet=pet->next;
+       }
+       pre->next=pet->next;
+
+   }
+       
+    
 }; 
 int main()
 {
@@ -72,7 +105,10 @@ int main()
   list.Insert(30);
   list.InsertAtEnd(60);
   list.InsertAtBegin(40);
-  list.InsertAtPosition(100,2);
+  list.InsertAtPosition(100,4);
+  list.DeleteAtBegining();
+  list.DeleteAtEnd();
+ // list.DeleteAtmidd(2);
   list.Printdata();
    
    }
